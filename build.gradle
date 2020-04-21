@@ -18,3 +18,21 @@ dependencies {
     implementation name: 'Adempiere'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+//	Create release for project
+task createRelease(type: Zip) {
+    dependsOn build
+    from 'build/libs/'
+    from 'xml/'
+    include '*'
+    include '*/*'
+    archiveName project.name + '.zip'
+    destinationDir(file('build/release/'))
+    doLast {
+        file('build/release/')
+                .listFiles({file -> file.isFile()} as FileFilter).sort()
+                .each { File file ->
+                    ant.checksum file: file
+                }
+    }
+}
