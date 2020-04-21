@@ -27,7 +27,6 @@ jobs:
         tags: true
 deploy:
   provider: releases
-  token: $GITHUB_TOKEN_KEY
   skip_cleanup: true
   file:
     - "$TRAVIS_BUILD_DIR/build/release/test-hello.zip"
