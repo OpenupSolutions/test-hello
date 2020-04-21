@@ -10,7 +10,7 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
     flatDir {
-        dirs '../adempiere/install/build/Adempiere/lib'
+        dirs 'dependences'
     }
 }
 
