@@ -30,12 +30,10 @@ jobs:
 deploy:
   provider: releases
   skip_cleanup: true
-  token: $GITHUB_TOKEN_KEY
+  api_key:
+    secure: $GITHUB_TOKEN_KEY
   file:
     - "$TRAVIS_BUILD_DIR/build/release/test-hello.zip"
     - "$TRAVIS_BUILD_DIR/build/release/test-hello.zip.MD5"
   on:
     tags: true
-env:
-  global:
-    secure: $GITHUB_TOKEN_KEY
